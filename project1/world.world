@@ -1,0 +1,45 @@
+
+# A world model for simple wall following
+
+# define the various robots that we will load.
+include "roomba.inc"
+
+
+# defines 'map' object used for floorplans
+include "map.inc"
+
+
+# size of the world in meters
+size [16 16]
+
+# set the resolution of the underlying raytrace model in meters
+resolution 0.02
+
+interval_sim 100
+interval_real 100
+
+# configure the GUI window
+window
+( 
+  size [ 735.000 576.000 ] 
+  center [-0.318 -2.056] 
+  scale 0.028 
+)
+
+# load an environment bitmap
+map
+( 
+  bitmap "bitmaps/blank.png"
+  size [16 16]
+  name "blank"
+)
+
+
+# create a robot
+roomba
+(
+  name "robot1"
+  color "grey"
+  pose [1.900 -2.100 270.000]
+  watchdog_timeout -1.0
+)
