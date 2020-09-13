@@ -1,1 +1,4 @@
 # CISC3415_G12
+CISC 3415
+Group 12
+Proj_1
