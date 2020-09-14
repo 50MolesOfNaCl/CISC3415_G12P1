@@ -25,6 +25,10 @@ int main(int argc, char *argv[])
 {
   using namespace PlayerCc;
 
+  if(argc > 2) { //You can change this value to something higher, I have no idea what you would pass beyond speed and number of cycles.
+    std::cout << "Too many arguements" << '\n';
+    return 1; //stops the program.
+  } else {
   // Set up proxy. Proxies are the datastructures that Player uses to
   // talk to the simulator and the real robot.
 
@@ -35,7 +39,7 @@ int main(int argc, char *argv[])
   int timer = 0;                      // A crude way to time what we do
                                       // is to count.
 
-  double turnrate, speed;	      // Kept for telemetry
+  double turnrate, speed;
   double defaultSpeed = .5;	      // Speed at which robot should move forward
   int numTurns = 0; 		      // Track each forward and turn the robot makes, tracks number of complete clock cycles(0 to interval2), i.e. 4 makes a complete square trajectory
 
@@ -53,6 +57,7 @@ int main(int argc, char *argv[])
 
   // Allow the program to take charge of the motors (take care now)
   pp.SetMotorEnable(true);
+  }
 
   // Control loop
   while(true)
@@ -79,7 +84,7 @@ int main(int argc, char *argv[])
 		speed = 0;
 		if(timer % 10 == 0) {
 		    std::cout << "timer mod"<< timer << std::endl;
-        	
+
 		turnrate = -(M_PI/2/3);
 ///(turnInterval - forwardInterval); <-this is problematic//ties turnrate to time, i.e. 90 degrees distributed over this interval. The greater the diff the slower it turns
        		 }
