@@ -77,7 +77,11 @@ int main(int argc, char *argv[])
       		if((timer >= forwardInterval ) && (timer < turnInterval)){
 		//forwardInterval to turnInterval, Start turning
 		speed = 0;
-		turnrate = -(M_PI/2)/((turnInterval - forwardInterval)/10); //ties turnrate to time, i.e. 90 degrees distributed over this interval. The greater the diff the slower it turns
+		if(timer % 10 == 0) {
+		    std::cout << "timer mod"<< timer << std::endl;
+        	
+		turnrate = -(M_PI/2/3);
+///(turnInterval - forwardInterval); <-this is problematic//ties turnrate to time, i.e. 90 degrees distributed over this interval. The greater the diff the slower it turns
        		 }
        		else{ //timer == forwardInterval
 		timer = 0; //reset timer
