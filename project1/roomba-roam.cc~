@@ -31,6 +31,14 @@ int main(int argc, char *argv[])
   Position2dProxy pp(&robot,0);       // The 2D proxy is used to send 
                                       // motion commands.
 
+  //How many complete square robot should make
+  double numSquares = argc >= 2 ? atol(argv[1]) : 4; 
+				      // setting default to 4 as per request from professor
+	                              // numTurns * 4 = 1 square 
+			 	      // numOfSquares * x, for when you want multiple runs.
+
+
+
   int timer = 0;                      // A crude way to time what we do
                                       // is to count.
 
@@ -44,10 +52,6 @@ int main(int argc, char *argv[])
 
 
   double turnInterval = 90; 	      //interval1 to interval2, i.e. 9 seconds. 
-
-  //How many complete square robot should make
-  double numSquares = 1; 	              // numTurns * 4 = 1 square 
-			 	      // numOfSquares * x, for when you want multiple runs.
 
 
   // Allow the program to take charge of the motors (take care now)
@@ -76,11 +80,12 @@ int main(int argc, char *argv[])
       		if((timer >= forwardInterval ) && (timer < turnInterval)){
 		//forwardInterval to turnInterval, Start turning
 		speed = 0;
-		if(timer % 5 == 0) {
+		  if(timer % 10 == 0) {
 		    std::cout << "timer mod"<< timer << std::endl;
-        	}
-		turnrate = -(M_PI/2/6);
-///(turnInterval - forwardInterval); <-this is problematic//ties turnrate to time, i.e. 90 degrees distributed over this interval. The greater the diff the slower it turns
+		   turnrate = -(M_PI/2/3);
+		///(turnInterval - forwardInterval); <-this is problematic, it seems robot internal program probably rounds this off if divided by 2 large of a number like 30. //ties turnrate to time, i.e. 90 degrees distributed over this interval. The greater the diff the slower it turns
+        	  }
+
        		 }
        		else{ //timer == forwardInterval
 		timer = 0; //reset timer
