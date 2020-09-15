@@ -20,6 +20,9 @@
 #include <libplayerc++/playerc++.h>
 #include <math.h>
 
+//Program can take command line arguments: 
+	//argv[1] = number of complete squares robot should make, default 1
+	//argv[2] = speed robot should travel at, default .5
 int main(int argc, char *argv[])
 {  
   using namespace PlayerCc;  
@@ -31,19 +34,21 @@ int main(int argc, char *argv[])
   Position2dProxy pp(&robot,0);       // The 2D proxy is used to send 
                                       // motion commands.
 
-  //How many complete square robot should make
+  //How many complete squares robot should make
   double numSquares = argc >= 2 ? atol(argv[1]) : 1; 
-				      // setting default to 4 as per request from professor
+				      // setting default to 1 complete square as per request intruction professor
 	                              // numTurns * 4 = 1 square 
 			 	      // numOfSquares * x, for when you want multiple runs.
 
-
+  double defaultSpeed = argc >= 3 ? atol(argv[2]) : .5; 
+				      // setting default to 1 complete square as per request intruction professor
+				// Speed at which robot should move forward
 
   int timer = 0;                      // A crude way to time what we do
                                       // is to count.
 
   double turnrate, speed;	      // Kept for telemetry
-  double defaultSpeed = .5;	      // Speed at which robot should move forward
+
   int numTurns = 0; 		      // Track each forward and turn the robot makes, tracks number of complete clock cycles(0 to interval2), i.e. 4 makes a complete square trajectory
 
 
@@ -82,8 +87,9 @@ int main(int argc, char *argv[])
 		speed = 0;
 		  if(timer % 10 == 0) {
 		    std::cout << "timer mod"<< timer << std::endl;
-		   turnrate = -(M_PI/2/3);
-		///(turnInterval - forwardInterval); <-this is problematic, it seems robot internal program probably rounds this off if divided by 2 large of a number like 30. //ties turnrate to time, i.e. 90 degrees distributed over this interval. The greater the diff the slower it turns
+		  int  divideDegrees = (turnInterval - forwardInterval)/10; //added this so it can work for any speed
+
+		   turnrate = -(M_PI/2/divideDegrees); //; <-this is problematic, it seems robot internal program probably rounds this off if divided by 2 large of a number like 30. //ties turnrate to time, i.e. 90 degrees distributed over this interval. The greater the diff the slower it turns
         	  }
 
        		 }
