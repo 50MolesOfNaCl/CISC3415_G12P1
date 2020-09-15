@@ -1,16 +1,16 @@
 /*
  *  roomba-roam.cc
  * 
- *  Sample code for a robot that is suitable for use with the Roomba
- *  and Create.
+ *  Modified code for a robot that is suitable for use with the Roomba
+ *  and Create. Robot moves in a square trajectory. Command Line arguments give user option to enter number of squares for robot to complete. As well, as option to adjust speed
  * 
  *  Based on an example provided by Monica Anderson and Jeff Forbes,
  *  via Carlos Jaramillo, and changed to (hopefully) make it easier to
  *  understand.
  *
- *  Modified:    Simon Parsons
- *  Date:        15th June 2009
- *  Last change: 20th September 2011
+ *  Group 12: Jennie Kang, Edward Lam, Jamila Toaha
+ *  Date:        16th September 2020
+ *  Last change: 15th September 2020
  *  
  */
 #define _USE_MATH_DEFINES
