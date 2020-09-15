@@ -35,12 +35,12 @@ int main(int argc, char *argv[])
                                       // motion commands.
 
   //How many complete squares robot should make
-  double numSquares = argc >= 2 ? atol(argv[1]) : 1; 
+  double numSquares = argc >= 2 ? atof(argv[1]) : 1; 
 				      // setting default to 1 complete square as per request intruction professor
 	                              // numTurns * 4 = 1 square 
 			 	      // numOfSquares * x, for when you want multiple runs.
 
-  double defaultSpeed = argc >= 3 ? atol(argv[2]) : .5; 
+  double defaultSpeed = argc >= 3 ? atof(argv[2]) : .5; 
 				      // setting default to 1 complete square as per request intruction professor
 				// Speed at which robot should move forward
 
