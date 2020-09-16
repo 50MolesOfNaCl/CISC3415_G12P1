@@ -108,7 +108,7 @@ int main(int argc, char *argv[])
 		speed = 0;
 		  if(timer % 10 == 0) {
 		  int  divideDegrees = (turnInterval - forwardInterval)/10; //added this so it can work for any speed
-		   turnrate = (M_PI/2/divideDegrees); //; <-this proved to be problematic, it seems robot internal program probably rounds this off if divided by too large of a number like 30, so we limited number. // this ties turnrate to time, i.e. 90 degrees distributed over this interval. The greater the diff the slower it turns
+		   turnrate = -(M_PI/2/divideDegrees); //; <-this proved to be problematic, it seems robot internal program probably rounds this off if divided by too large of a number like 30, so we limited number. // this ties turnrate to time, i.e. 90 degrees distributed over this interval. The greater the diff the slower it turns
         	  }
 
        		 }

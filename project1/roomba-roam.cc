@@ -1,7 +1,7 @@
 /*
  *  roomba-roam.cc
  * 
- *  Group 12: Jennie Kang, Edward Lam, Jamila Toaha
+ *  Group 12: Jennie Kang, Edmund Lam, Jamila Toaha
  *
  *  This program makes robot/ Create drive in a square trajectory, 
  *    3 meters on a side, turning clockwise at each corner. 
