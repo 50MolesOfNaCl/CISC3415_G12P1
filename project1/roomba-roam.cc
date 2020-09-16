@@ -8,7 +8,7 @@
  *  via Carlos Jaramillo, and changed to (hopefully) make it easier to
  *  understand.
  *
- *  Group 12: Jennie Kang, Edward Lam, Jamila Toaha
+ *  Group 12: Jennie Kang, Edmund Lam, Jamila Toaha
  *  Date:        16th September 2020
  *  Last change: 15th September 2020
  *  
